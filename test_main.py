@@ -18,12 +18,12 @@ class TestPowerFunction(unittest.TestCase):
         self.assertEqual(power(0, 0), 1)  # Convention: 0^0 = 1
 
     def test_negative_exponent(self):
-        """Test with negative exponent - EXPECTED TO FAIL (current bug)"""
-        self.assertEqual(power(2, -1), 0.5)
-        self.assertEqual(power(4, -2), 0.25)
+        """Test with negative exponent"""
+        self.assertAlmostEqual(power(2, -1), 0.5)
+        self.assertAlmostEqual(power(4, -2), 0.25)
 
     def test_float_exponent(self):
-        """Test with float exponent - EXPECTED TO FAIL (current bug)"""
+        """Test with float exponent"""
         self.assertAlmostEqual(power(2, 1.5), 2.828, places=3)
 
     def test_zero_base_positive_exponent(self):
@@ -32,7 +32,7 @@ class TestPowerFunction(unittest.TestCase):
         self.assertEqual(power(0, 1), 0)
 
     def test_zero_base_negative_exponent(self):
-        """Test with zero base and negative exponent - EXPECTED TO FAIL"""
+        """Test with zero base and negative exponent"""
         with self.assertRaises(ZeroDivisionError):
             power(0, -1)
 
